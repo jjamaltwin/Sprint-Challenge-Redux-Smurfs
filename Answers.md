@@ -1,6 +1,6 @@
-1.  Name 3 JavaScript Array/Object Methods that do not produce side-effects? Which method do we use to create a new object while extending the properties of another object?
-1.  Describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-1.  What is the difference between Application state and Component state? When would be a good time to use one over the other?
-1.  What is middleware?
-1.  Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
-1.  Which `react-redux` method links up our `components` with our `redux store`?
+  map(), filter(), and concat(). We would use Object.assign setting an empty object as the first argument, secondly a predefined object. This will allow us to create the new object with the extended properties. 
+Actions are objects that describe what event change you would like made to the state. Reducers are functions that need to be pure Javascript , they are responsible for seting the initial state of the store, and they need to return the next state of the store. The store is to help make the state of our app more predictable.  We put the state of our App in a single location callled the state tree. We call the combonation of our state tree, a way to get state, update it and listen to it "The Store". The store is called 'single source of truth' becase it has a shared cache, this is where we will get and update our state.
+ Application state is on a more golbal level of access, this is ideal when components all share the same information. Component state is restricted to that component, ideal for form components with input values.
+middleware?Middleware is used to capture an action that is triggered from the view state and implement some sort of change using that action before it passes the action to the reducer.
+redux-thunk` is middleware that allows us to set up asynchronous actions within Redux, which is synchronous by nature. It allows us to implement promises within our action creators so that actions can be triggered asynchronously, like when data is being retrieved from a server.
+`connect` is the method that links a component with the `redux store`.
