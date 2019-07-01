@@ -40,3 +40,36 @@ export const getSmurfs = () => {
 }
 
 
+// Stretch 
+
+// Update Smurf 
+
+export const updateSmurf = (id, updatedAge) => {
+  return (dispatch) => {
+    dispatch({type: FETCHING});
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, updatedAge)
+      .then(response => {
+        dispatch({type: GET_SMURFS, smurfs: response.data})
+      })
+      .catch(err => {
+        dispatch({type: ERROR, error: `Sorry! We could not update the Smurf!`})
+      });
+  }
+}
+
+// Delete Smurf 
+
+export const deleteSmurf = (id) => {
+  return(dispatch) => {
+    dispatch({type: FETCHING});
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        dispatch({type: GET_SMURFS, smurfs: response.data})
+      })
+      .catch(err => {
+        dispatch({type: ERROR, error: `Sorry! We could not delete the Smurf!`})
+      });  
+  }
+}
